@@ -21,6 +21,10 @@ pipeline {
       }
     }
     stage('Deliver') {
+      agent any
+      environment {
+        CI = 'true'
+      }
       steps {
         sh './jenkins/scripts/deliver.sh'
         input 'Finished usidng the aa web site? (Click "Proceed" to continue '
